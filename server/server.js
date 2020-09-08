@@ -35,8 +35,8 @@ let jokes = [
 ];
 
 // serve back static files
-app.use(express.static('server/public'));
+app.use( express.static( 'server/public' ) );
 
 app.listen(PORT, () => {
-  console.log('server running on: ', PORT);
-}); // end spin up server
+  console.log( 'server running on: ', PORT );
+} ); // end spin up server

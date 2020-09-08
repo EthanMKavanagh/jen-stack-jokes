@@ -17,7 +17,15 @@
   "author": "PrimeAcademy",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0"
-  }
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kavy-1/jen-stack-jokes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kavy-1/jen-stack-jokes/issues"
+  },
+  "homepage": "https://github.com/Kavy-1/jen-stack-jokes#readme"
 }

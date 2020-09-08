@@ -4,7 +4,7 @@ const bodyParser = require( 'body-parser' );
 const PORT = 5000;
 
 // use bodyParser.urlencoded throughout the app with this:
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use( bodyParser.urlencoded( { extended: true } ) );
 
 let jokes = [
   {
@@ -43,8 +43,13 @@ app.get( '/jokes', ( req, res ) => {
   res.send( jokes );
 } ); // end GET
 
-
-
+// POST
+app.post( '/jokes', ( req, res ) => {
+  console.log( 'req.body is:', req.body );
+  let objectToSend = req.body;
+  jokes.push( objectToSend );
+  res.sendStatus( 200 );
+} ); // end POST
 
 app.listen(PORT, () => {
   console.log( 'server running on: ', PORT );

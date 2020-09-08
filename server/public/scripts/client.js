@@ -6,7 +6,24 @@ function onReady(){
     console.log( 'DOM ready' );
     refreshJokes();
     $( document ).on( 'click', '#addJokeButton', onAddJoke );
+    $( document ).on( 'click', '#clearInputs', onClearInputs );
+    $( document ).on( 'click', '#clearJokes', onClearJokes );
 } // end onReady
+
+function onClearJokes(){
+    let el = $( '#outputDiv' )
+    el.empty();
+    // Clears on click, but when a new joke is added, previous jokes reappear
+    $( '#outputDiv' ).append( `` ); // end append
+} // end onClearJokes
+
+function onClearInputs(){
+    objectToSend = {
+        whoseJoke: $( '#whoseJokeIn' ).val( '' ),
+        jokeQuestion: $( '#questionIn' ).val( '' ),
+        punchLine: $( '#punchlineIn' ).val( '' )
+    } // end objectToSend
+} // end onClear
 
 function refreshJokes(){
     $.ajax( {
@@ -18,12 +35,12 @@ function refreshJokes(){
         el.empty();
         for( let i = 0; i < response.length; i++ ){
             $( '#outputDiv' ).append( `
-                <h3>
+                <p>
                     ${response[ i ].whoseJoke}:
                     ${response[ i ].jokeQuestion}
                     ${response[ i ].punchLine}
-                </h3>
-            ` )
+                </p>
+            ` ) // end append
         } // end for
     } ).catch( function( errorInfo ){
         alert( 'Error in ajax GET!', errorInfo );

@@ -1,0 +1,17 @@
+body {
+    background-color: peachpuff /* Edan's favorite! */
+}
+
+#addJokeButton, #clearInputs, #clearJokes {
+    border-radius: 8px;
+    margin-left: 5px;
+}
+
+#whoseJokeIn, #questionIn, #punchlineIn {
+    border: 2px solid black;
+    margin-left: 5px;
+}
+
+#questionIn, #punchlineIn {
+    width: 300px;
+}

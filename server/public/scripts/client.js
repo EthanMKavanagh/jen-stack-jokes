@@ -7,6 +7,28 @@ function onReady(){
     $( document ).on( 'click', '#addJokeButton', onAddJoke );
 } // end onReady
 
+function refreshJokes(){
+    $.ajax( {
+        url: '/jokes',
+        method: 'GET'
+    } ).then( function( response ){
+        console.log( 'Inside of ajax GET! Response is:', response );
+        let el = $( '#outputDiv' );
+        el.empty();
+        for( let joke of jokes ){
+            $( '#outputDiv' ).append( `
+                <h3>
+                    ${joke.whoseJokeIn}:
+                    ${joke.questionIn}
+                    ${joke.punchlineIn}
+                </h3>
+            ` )
+        } // end if
+    } ).catch( function( errorInfo ){
+        alert( 'Error in ajax GET!', errorInfo );
+    } ); // end ajax GET
+} // end refreshJokes
+
 function onAddJoke(){
     let objectToSend = {
         whoseJoke: $( '#whoseJokeIn' ).val(),
@@ -22,5 +44,5 @@ function onAddJoke(){
         //refreshJokes();
     } ).catch( function (errorInfo){
         alert( 'Error in ajax POST!', errorInfo );
-    } ) // end POST ajax
+    } ) // end ajax POST
 } // end onAddJoke
